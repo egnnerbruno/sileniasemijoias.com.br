@@ -1,0 +1,340 @@
+.section {
+    padding: min(clamp(3.5rem, 6vw, 5rem), clamp(2rem, 7svh, 5rem)) 0 min(clamp(2.5rem, 5vw, 4rem), clamp(1.75rem, 6svh, 4rem));
+    background: #0C0D10;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--container-pad-x);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: min(2rem, 3svh);
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: var(--fs-section-title);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin-top: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.titleAccent {
+    display: inline-block;
+    padding-top: 0.15em;
+    line-height: 0.9;
+    color: #E8D8B8;
+    font-family: var(--font-script);
+    font-weight: 400;
+    font-size: 1.3em;
+}
+
+.subtitle {
+    font-size: var(--fs-body);
+    color: rgba(255, 255, 255, 0.6);
+    max-width: min(520px, 100%);
+    margin: 0 auto;
+    line-height: 1.65;
+}
+
+/* Slider Layout */
+.sliderContainer {
+    position: relative;
+    width: 100%;
+    margin-bottom: 1.25rem;
+}
+
+.grid {
+    display: flex;
+    gap: clamp(1rem, 2vw, 1.25rem);
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    /* Firefox */
+    padding: min(1.5rem, 2svh) 0;
+    /* Room for shadows on hover */
+}
+
+.grid::-webkit-scrollbar {
+    display: none;
+    /* Safari/Chrome */
+}
+
+/* Card */
+.card {
+    flex: 0 0 calc(33.333% - 1rem);
+    /* 3 itens visiveis desktop */
+    min-width: min(250px, 100%);
+    scroll-snap-align: start;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    transition: border-color 180ms var(--ease-out), transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out);
+    cursor: pointer;
+    text-align: left;
+}
+
+.card:hover {
+    border-color: rgba(232, 216, 184, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+.cardVisual {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    background: #26252a;
+    overflow: hidden;
+}
+
+.productImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.45s ease;
+    display: block;
+}
+
+.card:hover .productImg {
+    transform: scale(1.06);
+}
+
+.cardGlow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 60%, rgba(232, 216, 184, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.card:hover .cardGlow {
+    opacity: 1;
+}
+
+.cardBody {
+    padding: clamp(1rem, 2vw, 1.25rem);
+}
+
+.cardTitle {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.1rem;
+    line-height: 1.2;
+}
+
+.cardDesc {
+    font-size: var(--fs-sm);
+    color: rgba(255, 255, 255, 0.45);
+    line-height: 1.5;
+}
+
+/* CTA */
+.cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    padding: clamp(1.25rem, 2vw, 1.5rem) clamp(1.25rem, 2.5vw, 2rem);
+    background: linear-gradient(135deg, rgba(232, 216, 184, 0.06), rgba(156, 163, 175, 0.04));
+    border: 1px solid rgba(232, 216, 184, 0.15);
+    border-radius: var(--radius-panel);
+    flex-wrap: wrap;
+}
+
+.ctaText {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: var(--fs-sm);
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.ctaText svg {
+    color: #E8D8B8;
+    flex-shrink: 0;
+}
+
+.ctaBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.875rem 2rem;
+    background: var(--color-gold-light);
+    color: #0C0D10;
+    font-weight: 700;
+    font-size: var(--fs-sm);
+    border-radius: var(--radius-pill);
+    transition: background-color 180ms var(--ease-out), transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out);
+    box-shadow: 0 4px 18px rgba(232, 216, 184, 0.3);
+    white-space: nowrap;
+}
+
+.ctaBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(232, 216, 184, 0.5);
+}
+
+/* Nav Buttons */
+.navBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(12, 13, 16, 0.85);
+    border: 1px solid rgba(232, 216, 184, 0.4);
+    color: #E8D8B8;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 180ms var(--ease-out), transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out);
+    backdrop-filter: none;
+}
+
+.navBtn:hover {
+    background: #E8D8B8;
+    color: #0C0D10;
+}
+
+.navPrev {
+    left: clamp(-22px, -1.8vw, -12px);
+}
+
+.navNext {
+    right: clamp(-22px, -1.8vw, -12px);
+}
+
+/* Conteúdo do modal de produto — coluna flex que se adapta à altura da tela */
+.modalContent {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.75rem, 1.5vw, 1rem);
+    flex: 0 1 auto;
+    min-height: 0;
+}
+
+/*
+ * A moldura da foto é o único elemento elástico: em telas baixas ela encolhe
+ * (até o mínimo) para o texto, a nota e o CTA continuarem visíveis sem corte.
+ */
+.modalImageWrap {
+    position: relative;
+    flex: 0 0 auto;
+    width: 100%;
+    height: clamp(128px, 22dvh, 190px);
+    min-height: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(232, 216, 184, 0.2);
+    background: #26252a;
+}
+
+.modalImage {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.modalDesc {
+    flex-shrink: 0;
+    font-size: var(--fs-body);
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.65;
+}
+
+.modalNote {
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: clamp(0.75rem, 2vw, 1rem);
+    background: rgba(232, 216, 184, 0.06);
+    border: 1px solid rgba(232, 216, 184, 0.2);
+    border-radius: 12px;
+    font-size: var(--fs-small);
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.55;
+}
+
+.modalNote svg {
+    color: #E8D8B8;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.modalNote strong {
+    color: #E8D8B8;
+    font-weight: 600;
+}
+
+.modalCta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.875rem clamp(1.25rem, 3vw, 2rem);
+    background: var(--color-gold-light);
+    color: #0C0D10;
+    font-weight: 700;
+    font-size: var(--fs-sm);
+    border-radius: var(--radius-pill);
+    transition: background-color 180ms var(--ease-out), transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out);
+    box-shadow: 0 4px 18px rgba(232, 216, 184, 0.3);
+}
+
+.modalCta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(232, 216, 184, 0.5);
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+    .card {
+        flex: 0 0 calc(50% - 0.75rem);
+        /* 2 itens desktop menores */
+    }
+}
+
+@media (max-width: 650px) {
+    .modalImageWrap {
+        height: clamp(104px, 18dvh, 150px);
+    }
+
+    .card {
+        flex: 0 0 82%;
+        /* 1 item peek-through mobile */
+    }
+
+    .navBtn {
+        display: none;
+        /* Swipe apenas mobile! */
+    }
+
+    .cta {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .ctaBtn {
+        width: 100%;
+        justify-content: center;
+    }
+}

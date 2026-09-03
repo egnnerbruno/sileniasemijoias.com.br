@@ -1,0 +1,262 @@
+.about {
+    padding: var(--section-pad-y) 0;
+    background: linear-gradient(180deg, #0C0D10 0%, #14161B 50%, #0C0D10 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -200px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(156, 163, 175, 0.07) 0%, transparent 70%);
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--container-pad-x);
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: clamp(2.5rem, 5vw, 4.5rem);
+    align-items: center;
+}
+
+/* ===== VISUAL ===== */
+.visual {
+    position: relative;
+}
+
+.imageFrame {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    max-height: min(480px, 62svh);
+}
+
+.imagePlaceholder {
+    display: none;
+}
+
+.ceoPhoto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 24px;
+    display: block;
+}
+
+.photoOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 35%;
+    background: linear-gradient(to top,
+            rgba(12, 13, 16, 0.7) 0%,
+            rgba(12, 13, 16, 0.2) 60%,
+            transparent 100%);
+    border-radius: 0 0 24px 24px;
+    pointer-events: none;
+}
+
+.heartIcon {
+    display: none;
+}
+
+.imageAccent {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: 20px;
+    bottom: 20px;
+    border: 1px solid rgba(232, 216, 184, 0.2);
+    border-radius: 24px;
+    z-index: -1;
+}
+
+/* Instagram Card */
+.instaCard {
+    position: absolute;
+    bottom: -1rem;
+    right: -1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 1.25rem;
+    background: rgba(20, 22, 27, 0.95);
+    border: 1px solid rgba(232, 216, 184, 0.25);
+    border-radius: 50px;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: #E8D8B8;
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.instaCard:hover {
+    border-color: #F2E7CF;
+    transform: translateY(-2px);
+}
+
+/* Official Seal */
+.officialSeal {
+    position: absolute;
+    top: 1.5rem;
+    left: -1.5rem;
+}
+
+.sealInner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #E8D8B8, #9a7a2e);
+    box-shadow: 0 4px 20px rgba(232, 216, 184, 0.4);
+    text-align: center;
+}
+
+.sealCircle {
+    font-size: var(--fs-base);
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1;
+}
+
+.sealInner span {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(12, 13, 16, 0.8);
+    line-height: 1.2;
+}
+
+.sealInner strong {
+    font-size: var(--fs-xs);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #0C0D10;
+    line-height: 1.2;
+}
+
+/* ===== CONTENT ===== */
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.label {
+    margin-bottom: -0.25rem;
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: var(--fs-section-title);
+    font-weight: 700;
+    line-height: 1.25;
+    color: #fff;
+    margin-bottom: min(1.25rem, 2svh);
+}
+
+.titleAccent {
+    display: inline-block;
+    padding-top: 0.15em;
+    line-height: 0.9;
+    color: #E8D8B8;
+    font-family: var(--font-script);
+    font-weight: 400;
+    font-size: 1.3em;
+}
+
+.text {
+    font-size: var(--fs-body);
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.75;
+    margin-bottom: 0.5rem;
+}
+
+.text strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+.highlight {
+    color: #E8D8B8;
+    font-weight: 700;
+}
+
+.link {
+    color: #E8D8B8;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.link:hover {
+    color: #F2E7CF;
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: clamp(2rem, 5vw, 3rem);
+    }
+
+    .visual {
+        max-width: min(380px, 100%);
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .container {
+        text-align: center;
+    }
+
+    .visual {
+        max-width: min(260px, 85vw);
+    }
+
+    .imageFrame {
+        aspect-ratio: 3/4;
+        max-height: 320px;
+    }
+
+    .imageAccent {
+        display: none;
+    }
+
+    .officialSeal {
+        position: absolute;
+        top: 0.75rem;
+        left: 0.75rem;
+    }
+
+    .instaCard {
+        position: static;
+        margin-top: 1rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .content {
+        align-items: center;
+        text-align: center;
+    }
+}

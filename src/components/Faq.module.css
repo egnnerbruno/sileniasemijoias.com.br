@@ -1,0 +1,126 @@
+.section {
+    padding: min(clamp(4rem, 8vw, 6rem), clamp(2.25rem, 8svh, 6rem)) 0;
+    background-image: url('/assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+/* background-attachment: fixed não funciona corretamente em iOS/Android
+   (causa linhas e artefatos nas bordas das seções) */
+@media (max-width: 768px) {
+    .section {
+        background-attachment: scroll;
+        /* O parallax-group (pai) fornece a imagem — a seção fica transparente */
+        background-image: none;
+        background-color: transparent;
+    }
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(20, 22, 27, 0.9) 0%, rgba(12, 13, 16, 0.85) 50%, #0C0D10 100%);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--container-pad-x);
+    position: relative;
+    z-index: 1;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: min(clamp(2rem, 5vw, 3.5rem), 4svh);
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: min(var(--fs-section-title), 3.2rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin-top: 0.75rem;
+}
+
+.titleAccent {
+    color: #E8D8B8;
+    font-family: var(--font-script);
+    font-weight: 400;
+    font-size: 1.25em;
+}
+
+.faqList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.faqItem {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faqItem:hover {
+    border-color: rgba(232, 216, 184, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.faqItem.open {
+    border-color: rgba(232, 216, 184, 0.5);
+    background: rgba(232, 216, 184, 0.05);
+}
+
+.questionBtn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    padding: clamp(1rem, 2.5vw, 1.5rem);
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: var(--fs-base);
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    font-family: var(--font-main);
+}
+
+.icon {
+    flex-shrink: 0;
+}
+
+.icon {
+    color: #E8D8B8;
+    transition: transform 0.3s ease;
+}
+
+.faqItem.open .icon {
+    transform: rotate(180deg);
+}
+
+.answerWrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.faqItem.open .answerWrapper {
+    max-height: 300px;
+}
+
+.answerText {
+    padding: 0 clamp(1rem, 2.5vw, 1.5rem) clamp(1rem, 2.5vw, 1.5rem);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: var(--fs-sm);
+    line-height: 1.6;
+}

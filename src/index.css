@@ -1,0 +1,176 @@
+/* Silenia — dupla tipográfica exclusiva: Cormorant Infant para interface e títulos, Great Vibes para destaques manuscritos. */
+:root {
+  --color-primary-dark: #0c0d10;
+  --color-secondary-dark: #14161b;
+  --color-surface-raised: #191a1f;
+  --color-card-bg: #202127;
+  --color-gold: #b98a54;
+  --color-gold-light: #e8d8b8;
+  --color-gold-dark: #8d673f;
+  --color-rose-gold: #c49a92;
+  --color-white: #fffdf9;
+  --color-text-muted: rgba(255, 253, 249, 0.7);
+  --color-text-subtle: rgba(255, 253, 249, 0.46);
+  --color-line: rgba(255, 253, 249, 0.1);
+  --color-line-strong: rgba(232, 216, 184, 0.25);
+  --color-focus: #f2d6a4;
+
+  --font-body: 'Cormorant Infant';
+  --font-main: 'Cormorant Infant';
+  --font-display: 'Cormorant Infant';
+  --font-script: 'Great Vibes';
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: clamp(0.875rem, 0.75rem + 0.5vw, 1rem);
+  --spacing-lg: clamp(1.25rem, 1rem + 1.5vw, 2rem);
+  --spacing-xl: clamp(2.5rem, 2rem + 2.5vw, 4rem);
+  --spacing-xxl: clamp(4rem, 3rem + 5vw, 7rem);
+  --section-pad-y: clamp(4.5rem, 7vw, 7rem);
+  --section-header-mb: clamp(2rem, 4vw, 3.5rem);
+  --container-pad-x: clamp(1.25rem, 0.75rem + 2.5vw, 2.5rem);
+  --gap-cards: clamp(1rem, 0.75rem + 1vw, 1.5rem);
+  --card-pad: clamp(1.25rem, 1rem + 1.5vw, 2rem);
+  --container-width: 1280px;
+
+  --fs-xs: clamp(0.72rem, 0.68rem + 0.15vw, 0.8rem);
+  --fs-sm: clamp(0.84rem, 0.8rem + 0.2vw, 0.95rem);
+  --fs-base: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
+  --fs-md: clamp(1.05rem, 0.95rem + 0.3vw, 1.2rem);
+  --fs-lg: clamp(1.25rem, 1.05rem + 0.45vw, 1.55rem);
+  --fs-xl: clamp(1.55rem, 1.2rem + 0.7vw, 2rem);
+  --fs-2xl: clamp(2rem, 1.4rem + 1.5vw, 3rem);
+  --fs-3xl: clamp(2.7rem, 1.8rem + 2.6vw, 4.5rem);
+  --fs-section-title: clamp(2.15rem, 1.5rem + 2vw, 3.35rem);
+  --fs-body: var(--fs-base);
+  --fs-small: var(--fs-sm);
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.9rem;
+  --radius-panel: 1.25rem;
+  --radius-lg: 1.5rem;
+  --radius-pill: 999px;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --transition-fast: color 160ms var(--ease-out), background-color 160ms var(--ease-out), border-color 160ms var(--ease-out), transform 160ms var(--ease-out), opacity 160ms var(--ease-out);
+  --transition-smooth: var(--transition-fast);
+  --border-gold: 1px solid var(--color-line-strong);
+  --border-subtle: 1px solid var(--color-line);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--color-primary-dark);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  font-weight: 400;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, p { margin: 0; }
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); }
+h2 { font-size: var(--fs-xl); font-weight: 600; line-height: 1.1; }
+p { font-family: var(--font-body); }
+a { color: inherit; text-decoration: none; }
+button, input, textarea, select { font: inherit; }
+button { border: 0; cursor: pointer; }
+img { display: block; max-width: 100%; }
+ul, ol { margin: 0; padding: 0; }
+
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
+
+.container { width: 100%; max-width: var(--container-width); margin-inline: auto; padding-inline: var(--container-pad-x); }
+.section { padding-block: var(--section-pad-y); }
+
+.parallax-group {
+  position: relative;
+  background-image: url('/assets/background.jpg');
+  background-position: center;
+  background-size: cover;
+  background-attachment: scroll;
+}
+
+.text-gold { color: var(--color-gold-light); }
+.text-rose { color: var(--color-rose-gold); }
+.font-display { font-family: var(--font-display); }
+
+.glass {
+  border: var(--border-subtle);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.gradient-gold {
+  color: var(--color-gold-light);
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.9rem;
+  color: var(--color-gold-light);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.section-label::before {
+  width: 1.75rem;
+  height: 1px;
+  background: var(--color-gold);
+  content: '';
+}
+
+.btn-primary, .btn-outline {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.4rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  transition: var(--transition-fast);
+}
+
+.btn-primary { background: var(--color-gold-light); color: var(--color-primary-dark); }
+.btn-primary:hover { background: #f5e9d2; transform: translateY(-1px); }
+.btn-outline { border: 1px solid var(--color-line-strong); background: transparent; color: var(--color-white); }
+.btn-outline:hover { border-color: var(--color-gold); color: var(--color-gold-light); transform: translateY(-1px); }
+.btn-primary:active, .btn-outline:active { transform: scale(0.98); }
+
+::-webkit-scrollbar { width: 0.45rem; }
+::-webkit-scrollbar-track { background: var(--color-primary-dark); }
+::-webkit-scrollbar-thumb { border-radius: 999px; background: #2c2b2a; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-gold-dark); }
+
+.reveal-up, .reveal-left, .reveal-right, .reveal-scale {
+  opacity: 0;
+  transform: translate3d(0, 1.5rem, 0);
+  transition: opacity 240ms var(--ease-out), transform 240ms var(--ease-out);
+}
+.reveal-left { transform: translate3d(-1.5rem, 0, 0); }
+.reveal-right { transform: translate3d(1.5rem, 0, 0); }
+.reveal-scale { transform: scale(0.98); }
+.is-revealed.reveal-up, .is-revealed.reveal-left, .is-revealed.reveal-right, .is-revealed.reveal-scale { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
