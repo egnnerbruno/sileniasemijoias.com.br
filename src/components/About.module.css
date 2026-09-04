@@ -31,14 +31,16 @@
 /* ===== VISUAL ===== */
 .visual {
     position: relative;
+    /* Largura igual à da foto (3:4 limitada pela altura): selo, moldura e card se ancoram na foto de fato */
+    width: min(100%, calc(min(480px, 62svh) * 3 / 4));
 }
 
 .imageFrame {
     position: relative;
+    width: 100%;
+    aspect-ratio: 3/4;
     border-radius: 24px;
     overflow: hidden;
-    aspect-ratio: 3/4;
-    max-height: min(480px, 62svh);
 }
 
 .imagePlaceholder {
@@ -121,8 +123,8 @@
     align-items: center;
     justify-content: center;
     gap: 2px;
-    width: 80px;
-    height: 80px;
+    width: 92px;
+    height: 92px;
     border-radius: 50%;
     background: linear-gradient(135deg, #E8D8B8, #9a7a2e);
     box-shadow: 0 4px 20px rgba(232, 216, 184, 0.4);
@@ -136,10 +138,10 @@
 }
 
 .sealInner span {
-    font-size: var(--fs-xs);
+    font-size: 0.62rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.05em;
     color: rgba(12, 13, 16, 0.8);
     line-height: 1.2;
 }
@@ -185,7 +187,7 @@
 
 .text {
     font-size: var(--fs-body);
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.76);
     line-height: 1.75;
     margin-bottom: 0.5rem;
 }
@@ -212,30 +214,42 @@
 
 /* Responsivo */
 @media (max-width: 1024px) {
+    /* Coluna única: imagem, card do Instagram e texto centralizados */
     .container {
         grid-template-columns: 1fr;
         gap: clamp(2rem, 5vw, 3rem);
-    }
-
-    .visual {
-        max-width: min(380px, 100%);
-        margin: 0 auto;
-        width: 100%;
-    }
-}
-
-@media (max-width: 640px) {
-    .container {
         text-align: center;
     }
 
     .visual {
-        max-width: min(260px, 85vw);
+        margin: 0 auto 1rem; /* centralizada; a margem dá espaço ao card que pende abaixo da foto */
     }
 
-    .imageFrame {
-        aspect-ratio: 3/4;
-        max-height: 320px;
+    /* Card do Instagram continua sobre a foto, centralizado na borda inferior */
+    .instaCard {
+        bottom: -1.25rem;
+        left: 50%;
+        right: auto;
+        width: max-content;
+        max-width: 100%;
+        transform: translateX(-50%);
+    }
+
+    .instaCard:hover {
+        transform: translate(-50%, -2px);
+    }
+
+    .content {
+        align-items: center;
+        text-align: center;
+        max-width: 62ch;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 640px) {
+    .visual {
+        width: min(240px, 85vw); /* foto de 240x320 */
     }
 
     .imageAccent {
@@ -243,20 +257,7 @@
     }
 
     .officialSeal {
-        position: absolute;
         top: 0.75rem;
         left: 0.75rem;
-    }
-
-    .instaCard {
-        position: static;
-        margin-top: 1rem;
-        width: 100%;
-        justify-content: center;
-    }
-
-    .content {
-        align-items: center;
-        text-align: center;
     }
 }

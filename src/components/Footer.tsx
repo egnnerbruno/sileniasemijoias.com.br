@@ -2,8 +2,16 @@ import { Instagram, MessageCircle } from 'lucide-react';
 import styles from './Footer.module.css';
 
 const WA_LINK = 'https://wa.me/c/5527999143932';
+const WA_KIT = 'https://wa.me/5527996088725?text=Ol%C3%A1+Sil%2C+vi+o+site+e+quero+agendar+para+retirar+meu+kit+consignado%21';
 const INSTAGRAM_URL = 'https://www.instagram.com/silstyllussemijoias/';
 const STYLLUS_URL = 'https://www.styllusvirtual.com.br/';
+
+const menuLinks = [
+    { name: 'Início', href: '#hero' },
+    { name: 'Quem Somos', href: '#about' },
+    { name: 'Coleção', href: '#products' },
+    { name: 'Revenda', href: '#reseller' },
+];
 
 const Footer = () => {
     return (
@@ -11,9 +19,9 @@ const Footer = () => {
             <div className={styles.topLine}></div>
             <div className={styles.container}>
                 {/* Logo + slogan */}
-                <div className={styles.brandBlock}>
+                <div className={`reveal-up ${styles.brandBlock}`}>
                     <div className={styles.logo}>
-                        <img src="/assets/logo_sil_styllus.svg" alt="Styllus Semijoias" className={styles.logoImg} />
+                        <img src="/assets/logo.png" alt="Styllus Semijoias" className={styles.logoImg} />
                     </div>
                     <p className={styles.slogan}>
                         Elegância e sofisticação<br />em cada detalhe.
@@ -29,26 +37,26 @@ const Footer = () => {
                 </div>
 
                 {/* Links */}
-                <div className={styles.linksBlock}>
+                <nav className={`reveal-up delay-100 ${styles.linksBlock}`} aria-label="Menu do rodapé">
                     <h4 className={styles.linksTitle}>Menu</h4>
                     <ul className={styles.linksList}>
-                        <li><a href="#hero">Início</a></li>
-                        <li><a href="#products">Coleção</a></li>
+                        {menuLinks.map((link) => (
+                            <li key={link.href}><a href={link.href}>{link.name}</a></li>
+                        ))}
                     </ul>
-                </div>
+                </nav>
 
-                {/* Endereço */}
-                <div className={styles.addressBlock}>
-                    <h4 className={styles.linksTitle}>Endereço</h4>
-                    <ul className={styles.addressList}>
-                        <li className={styles.address}>
-                            Rua Cap. Domingos Corrêa da Rocha, 80<br />
-                            Ed. Master Place — G2 P03<br />
-                            Santa Lúcia, Vitória/ES · CEP 29.056-220
-                        </li>
-                    </ul>
+                {/* Onde retirar o kit — endereço completo só pelo WhatsApp, a pedido da cliente */}
+                <div className={`reveal-up delay-200 ${styles.addressBlock}`}>
+                    <h4 className={styles.linksTitle}>Onde retirar o kit</h4>
+                    <p className={styles.address}>
+                        Centro de Relacionamento Styllus<br />
+                        Vitória/ES, bairro Santa Lúcia
+                    </p>
+                    <a href={WA_KIT} target="_blank" rel="noopener noreferrer" className={styles.addressLink}>
+                        Endereço completo e agendamento pelo WhatsApp
+                    </a>
                 </div>
-
             </div>
 
             {/* Bottom bar */}

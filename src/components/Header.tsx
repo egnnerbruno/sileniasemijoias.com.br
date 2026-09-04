@@ -33,7 +33,7 @@ const Header = () => {
             <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ''}`}>
                 <div className={styles.container}>
                     <a href="#hero" className={`${styles.logo} ${isMenuOpen ? styles.logoHidden : ''}`}>
-                        <img src="/assets/logo_sil_styllus.svg" alt="Styllus Semijoias" className={styles.logoImg} />
+                        <img src="/assets/logo.png" alt="Styllus Semijoias" className={styles.logoImg} />
                     </a>
 
                     <nav className={styles.navDesktop}>
@@ -73,7 +73,7 @@ const Header = () => {
             <nav id="mobile-navigation" className={`${styles.mobileMenu} ${isMenuOpen ? styles.mobileMenuOpen : ''}`} aria-hidden={!isMenuOpen}>
                 <div className={styles.mobileMenuHeader}>
                     <div className={styles.logo}>
-                        <img src="/assets/logo_sil_styllus.svg" alt="Styllus Semijoias" className={styles.logoImg} />
+                        <img src="/assets/logo.png" alt="Styllus Semijoias" className={styles.logoImg} />
                     </div>
                     <button className={styles.closeBtn} onClick={() => setIsMenuOpen(false)}>
                         <X size={28} />

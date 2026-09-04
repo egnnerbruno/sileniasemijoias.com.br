@@ -9,11 +9,6 @@ const Hero = () => {
             {/* Background */}
             <div className={styles.bgLayer}></div>
             <div className={styles.bgGradient}></div>
-            <div className={styles.particles}>
-                {[...Array(12)].map((_, i) => (
-                    <span key={i} className={styles.particle} style={{ '--i': i } as React.CSSProperties}></span>
-                ))}
-            </div>
 
             <div className={styles.container}>
                 <div className={styles.contentWrap}>
@@ -38,18 +33,25 @@ const Hero = () => {
                         <div className={styles.ctaGroup}>
                             <a href="#products" className={styles.ctaPrimary}>
                                 <ShoppingBag size={18} />
-                                Ver Catálogo
+                                Ver Coleção
                             </a>
                             <a href={CATALOG_LINK} target="_blank" rel="noopener noreferrer" className={styles.ctaSecondary}>
                                 Catálogo Completo
                             </a>
                         </div>
+
+                        {/* Faixa de confiança */}
+                        <ul className={styles.trust} aria-label="Diferenciais">
+                            <li>Banho de ouro 18k</li>
+                            <li>Garantia de 2 anos</li>
+                            <li>Revendedora oficial</li>
+                        </ul>
                     </div>
 
                     {/* Right: Visual */}
                     <div className={styles.visualContent}>
                         <div className={styles.imageWrapper}>
-                            <img src="/assets/modelo-styllus.png" alt="Semijoias Styllus" className={styles.heroImg} />
+                            <img src="/assets/modelo-styllus.webp" alt="Semijoias Styllus" className={styles.heroImg} />
                             <div className={styles.glowEffect}></div>
                         </div>
                     </div>

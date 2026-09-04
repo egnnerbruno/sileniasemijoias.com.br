@@ -285,3 +285,25 @@
         transition: opacity 0.2s ease;
     }
 }
+/* Entrada do cabeçalho ao carregar a página */
+.header {
+    animation: headerIn 700ms var(--ease-out) both;
+}
+
+@keyframes headerIn {
+    from {
+        opacity: 0;
+        transform: translateY(-0.75rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .header {
+        animation: none;
+    }
+}

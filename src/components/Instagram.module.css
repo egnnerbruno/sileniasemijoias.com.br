@@ -1,0 +1,182 @@
+/* Instagram — chamada breve para seguir o perfil, com um bloco de 4 fotos. */
+.section {
+    position: relative;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    background: linear-gradient(180deg, #0C0D10 0%, #14161B 100%);
+    border-top: 1px solid rgba(232, 216, 184, 0.08);
+    overflow: hidden;
+}
+
+.glow {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    width: min(720px, 90vw);
+    height: 420px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse at center, rgba(232, 216, 184, 0.07) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+.container {
+    position: relative;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-pad-x);
+}
+
+/* ===== Cabeçalho ===== */
+.header {
+    text-align: center;
+    margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15em;
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 1.2rem + 1.6vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: #fff;
+    margin-bottom: 0.9rem;
+}
+
+.handle {
+    color: #E8D8B8;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-decoration: underline;
+    text-decoration-color: rgba(232, 216, 184, 0.3);
+    text-underline-offset: 0.18em;
+    text-decoration-thickness: 1px;
+    transition: color 180ms var(--ease-out), text-decoration-color 180ms var(--ease-out);
+}
+
+.handle:hover {
+    color: #F2E7CF;
+    text-decoration-color: #F2E7CF;
+}
+
+.subtitle {
+    max-width: 52ch;
+    margin: 0 auto;
+    font-size: var(--fs-body);
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ===== Bloco de fotos ===== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(0.6rem, 1.2vw, 1rem);
+    max-width: 960px;
+    margin: 0 auto;
+    list-style: none;
+}
+
+/* Proporção 4:5, a mesma dos posts do Instagram, para não cortar as artes com texto */
+.tile {
+    aspect-ratio: 4 / 5;
+}
+
+.tileLink {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+    background: #f4eee6;
+    transition: border-color 200ms var(--ease-out), transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
+}
+
+.tileLink img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 700ms var(--ease-out);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(12, 13, 16, 0.45);
+    color: #F2E7CF;
+    opacity: 0;
+    transition: opacity 220ms var(--ease-out);
+}
+
+.tileLink:hover,
+.tileLink:focus-visible {
+    border-color: var(--color-line-strong);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+}
+
+.tileLink:hover img,
+.tileLink:focus-visible img {
+    transform: scale(1.05);
+}
+
+.tileLink:hover .overlay,
+.tileLink:focus-visible .overlay {
+    opacity: 1;
+}
+
+/* ===== Botão ===== */
+.ctaWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    min-height: 3rem;
+    padding: 0.8rem 1.6rem;
+    border-radius: var(--radius-pill);
+    background: var(--color-gold-light);
+    color: var(--color-primary-dark);
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    transition: var(--transition-fast);
+}
+
+.cta:hover {
+    background: #f5e9d2;
+    transform: translateY(-1px);
+}
+
+.ctaNote {
+    font-size: var(--fs-xs);
+    letter-spacing: 0.03em;
+    color: var(--color-text-subtle);
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 640px) {
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.6rem;
+    }
+
+    .cta {
+        width: 100%;
+        max-width: 360px;
+    }
+}

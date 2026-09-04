@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import Products from './components/Products';
+import Instagram from './components/Instagram';
 import ResellerBanner from './components/ResellerBanner';
 import Modal from './components/Modal';
 import Footer from './components/Footer';
@@ -31,6 +32,7 @@ function App() {
                 <Hero />
                 <About />
                 <Products />
+                <Instagram />
                 <ResellerBanner onOpenModal={() => setIsResellerModalOpen(true)} />
             </main>
             <Footer />
@@ -61,7 +63,7 @@ function App() {
                     <ol className={styles.steps}>
                         <li>
                             <span className={styles.stepNumber}>01</span>
-                            <span><strong>Agende uma visita</strong> ao nosso Centro em Vitória/ES.</span>
+                            <span><strong>Agende pelo WhatsApp</strong> sua visita ao Centro de Relacionamento, em Vitória, bairro Santa Lúcia. O endereço completo vai no agendamento.</span>
                         </li>
                         <li>
                             <span className={styles.stepNumber}>02</span>

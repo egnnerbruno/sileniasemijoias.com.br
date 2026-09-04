@@ -11,7 +11,7 @@ const About = () => {
                 <div className={`reveal-left ${styles.visual}`}>
                     <div className={styles.imageFrame}>
                         <img
-                            src="/assets/photo-ceo.jpeg"
+                            src="/assets/fundadora.webp"
                             alt="Selenia — fundadora da Styllus Semijoias em Vitória/ES"
                             className={styles.ceoPhoto}
                         />
@@ -41,7 +41,7 @@ const About = () => {
                 </div>
 
                 {/* Right: text */}
-                <div className={`reveal-right ${styles.content}`}>
+                <div className={`reveal-right delay-100 ${styles.content}`}>
                     <div className={styles.label}>
                         <span className="section-label">Quem Somos</span>
                     </div>
